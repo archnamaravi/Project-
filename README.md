@@ -1,32 +1,21 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
-from typing import Optional
+# ArogyaMitra 🧘‍♂️🤖
+**AI-Driven Workout Planning, Nutrition Guidance, and Health Coaching Agent**
 
-app = FastAPI(title="ArogyaMitra AI")
+ArogyaMitra is an intelligent health companion designed to provide personalized fitness and nutrition advice using state-of-the-art AI models.
 
-class UserProfile(BaseModel):
-    age: int
-    weight: float  # in kg
-    goal: str      # e.g., "muscle gain", "weight loss"
-    activity_level: str
+## ✨ Features
+* **Smart Workouts:** Customized exercise routines based on your BMI and goals.
+* **Nutrition Intelligence:** Personalized meal plans and macro tracking.
+* **24/7 Coaching:** AI-driven chat agent for health queries.
 
-@app.get("/")
-def home():
-    return {"message": "Welcome to ArogyaMitra Health Agent API"}
+## 🔧 Recommended Tech Stack
+To make this project stand out on GitHub, I recommend:
+* **Backend:** FastAPI (Fast and modern)
+* **AI Orchestration:**  **LangChain** or **CrewAI** (to manage the "Agent" behavior).
+* **LLM:** Google Gemini API or OpenAI API.
+* **Frontend:** Streamlit (for a quick, impressive UI) or React.
 
-@app.post("/generate-plan")
-async def create_workout(profile: UserProfile):
-    # This is where your AI Logic (e.g., Gemini or OpenAI) would go
-    # For now, we'll simulate a simple logic response
-    bmi = profile.weight / (1.75 ** 2)  # Simplified constant height
-    
-    plan = {
-        "status": "success",
-        "calculated_bmi": round(bmi, 2),
-        "recommendation": f"Based on your goal of {profile.goal}, we suggest a 4-day split."
-    }
-    return plan
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+## 🚀 Quick Start
+1. **Clone the repo:**
+   ```bash
+   git clone [https://github.com/your-username/ArogyaMitra.git](https://github.com/your-username/ArogyaMitra.git)
